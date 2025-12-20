@@ -31,10 +31,4 @@ Now, you need to make the largest joltage by turning on exactly twelve batteries
 
 The solution to the test case is `3121910778619`.
 
-> [!success] Solution: 
-
-`173724645733343`
-`173724645733343`
-
-
-6483266694748235893324353634344523834567333718239477213324541343624714732212276727733744455653544463
+> [!success] Solution: `173416889848394`

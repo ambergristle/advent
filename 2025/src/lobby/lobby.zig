@@ -31,9 +31,37 @@ pub fn highestOrderedPair(input: []u8) !u16 {
     return joltage;
 }
 
-const slice_length: usize = 15;
-
 // Part II
+const slice_length: usize = 12;
+
+// pub fn highestOrderedPairB(input: []u8) !u80 {
+//     var lines = std.mem.splitSequence(u8, input, "\n");
+
+//     var joltage: u80 = 0;
+//     while (lines.next()) |line| {
+//         var slice: [slice_length]u8 = .{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+//         var flag: usize = 0;
+
+//         for (0..line.len) |i| {
+//             const rem = line.len - i;
+//             flag = if (rem < slice_length) (slice_length - rem) else 0;
+
+//             for (flag..slice_length) |j| {
+//                 if (line[i] > slice[j]) {
+//                     slice[j] = line[i];
+//                     break;
+//                 }
+//             }
+//         }
+
+//         std.debug.print("{s}\n", .{slice});
+//         joltage += try std.fmt.parseInt(u80, &slice, 10);
+//     }
+
+//     return joltage;
+// }
+
 // pub fn highestOrderedPairC(input: []u8) !u80 {
 //     var lines = std.mem.splitSequence(u8, input, "\n");
 
@@ -67,49 +95,21 @@ const slice_length: usize = 15;
 // 434234234278
 // 888911112111
 
-pub fn highestOrderedPairC(input: []u8) !u80 {
-    var lines = std.mem.splitSequence(u8, input, "\n");
-
-    var joltage: u80 = 0;
-    while (lines.next()) |line| {
-        var slice: [slice_length]u8 = .{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        const gap = line.len - slice_length;
-
-        for (line, 0..) |c, i| {
-            const start = if (i < gap) 0 else i - gap;
-            const end = @min(i + 1, slice_length);
-
-            for (start..end) |j| {
-                if (c > slice[j]) {
-                    slice[j] = c;
-                    break;
-                }
-            }
-        }
-
-        std.debug.print("{s}\n", .{slice});
-        joltage += try std.fmt.parseInt(u80, &slice, 10);
-    }
-
-    return joltage;
-}
-
-pub fn highestOrderedPairB(input: []u8) !u80 {
+pub fn highestOrderedPairD(input: []u8) !u80 {
     var lines = std.mem.splitSequence(u8, input, "\n");
 
     var joltage: u80 = 0;
     while (lines.next()) |line| {
         var slice: [slice_length]u8 = .{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        const gap = line.len - slice_length;
 
-        var flag: usize = 0;
-
-        for (0..line.len) |i| {
-            const rem = line.len - i;
-            flag = if (rem < slice_length) (slice_length - rem) else 0;
-
-            for (flag..slice_length) |j| {
-                if (line[i] > slice[j]) {
-                    slice[j] = line[i];
+        for (line, 0..) |c, i| {
+            const start = if (i < gap) 0 else i - gap;
+            const end = @min(i + 1, slice_length);
+            for (start..end) |j| {
+                if (c > slice[j]) {
+                    slice[j] = c;
+                    @memset(slice[j + 1 ..], 0);
                     break;
                 }
             }
@@ -121,3 +121,9 @@ pub fn highestOrderedPairB(input: []u8) !u80 {
 
     return joltage;
 }
+
+// 6483266694748235893324353634344523834567333718239477213324541343624714732212276727733744455653544463
+
+// 999777777777
+
+// 993324353634344523834567333718239477213324541343624714732212276727733744455653544463
