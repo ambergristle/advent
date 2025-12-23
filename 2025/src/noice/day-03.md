@@ -1,4 +1,4 @@
-## 02 - Lobby
+## 03 - Lobby
 
 ### Setup
 
@@ -23,12 +23,22 @@ Within each bank of batteries, turn on exactly **two** batteries, maximizing jol
 
 The solution to the test case is `357`.
 
+After splitting the lines by `\n`, I iterate through each, looking (somewhat inelegantly) for the largest values, and clearing downstream values on write.
+
 > [!success] Solution: `17403`
+
+- A C++ solution with some [string ops](https://github.com/vss2sn/advent_of_code/blob/master/2025/cpp/day_03a.cpp) that probably have overlaps to Zig.
+- A Python solution that [simplifies Part I logic and uses recursion for Part II](https://www.reddit.com/user/_san4d_/).
+- A Go solution that seems to do [some interesting math stuff](https://github.com/craigalodon/adventofcode2025/blob/main/cmd/daythree/main.go). Not sure how much applies to Zig, but worth a look:
 
 ### Part II
 
 Now, you need to make the largest joltage by turning on exactly twelve batteries within each bank. The only difference is that now there will be 12 digits in each bank's joltage output instead of two.
 
 The solution to the test case is `3121910778619`.
+
+Clearing downstream values was key here (I lost a few cycles debugging this), but I also had a hard time with the algorithm. Perhaps because I was so focused on operating on/comparing to a literal slice? I'm not sure.
+
+It was a good learning exercize in local memory management, and byte-level operations though.
 
 > [!success] Solution: `173416889848394`

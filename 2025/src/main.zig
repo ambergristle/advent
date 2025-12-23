@@ -1,7 +1,13 @@
 const std = @import("std");
-const utils = @import("utils.zig");
-const lobby = @import("lobby/lobby.zig");
-// const foo = @import("foo");
+const utils = @import("utils");
+const work = @import("noice/day_04.zig");
+
+// pub fn main() !void {
+//     var args = std.process.args();
+//     while (args.next()) |arg| {
+//         std.debug.print("{s}\n", .{arg});
+//     }
+// }
 
 pub fn main() !void {
     var gpa = std.heap.GeneralPurposeAllocator(.{ .thread_safe = true }){};
@@ -11,11 +17,10 @@ pub fn main() !void {
 
     const allocator = gpa.allocator();
 
-    const buff = try utils.readFileToBuffer(allocator, "data/test.txt");
+    var buff = try utils.readFileToBuffer(allocator, "test_data/day-04.txt");
     defer allocator.free(buff);
 
-    // oof
-    const sum = try lobby.highestOrderedPairC(buff);
+    const sum = try work.sumUnblockedRecursive(allocator, &buff);
     std.debug.print("sum: {d}\n", .{sum});
 }
 
