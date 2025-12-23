@@ -1,6 +1,5 @@
 const std = @import("std");
 const utils = @import("utils");
-const work = @import("noice/day_04.zig");
 
 // pub fn main() !void {
 //     var args = std.process.args();
@@ -10,18 +9,18 @@ const work = @import("noice/day_04.zig");
 // }
 
 pub fn main() !void {
-    var gpa = std.heap.GeneralPurposeAllocator(.{ .thread_safe = true }){};
-    defer if (gpa.deinit() == .leak) {
-        std.log.err("memory leak", .{});
-    };
+    // var gpa = std.heap.GeneralPurposeAllocator(.{ .thread_safe = true }){};
+    // defer if (gpa.deinit() == .leak) {
+    //     std.log.err("memory leak", .{});
+    // };
 
-    const allocator = gpa.allocator();
+    // const allocator = gpa.allocator();
 
-    var buff = try utils.readFileToBuffer(allocator, "test_data/day-04.txt");
-    defer allocator.free(buff);
+    // var buff = try utils.readFileToBuffer(allocator, "data/day-04.txt");
+    // defer allocator.free(buff);
 
-    const sum = try work.sumUnblockedRecursive(allocator, &buff);
-    std.debug.print("sum: {d}\n", .{sum});
+    // const sum = try work.sumUnblockedRecursive(allocator, &buff);
+    // std.debug.print("sum: {d}\n", .{sum});
 }
 
 // pub fn main() !void {
