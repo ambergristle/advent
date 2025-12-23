@@ -7,7 +7,7 @@ zig-out/
 /build-*/
 /docgen_tmp/
 
-*/nested
+*/data
 
 .DS_Store
 .zed
