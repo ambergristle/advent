@@ -1,10 +1,14 @@
 
-- [01 - Secret Entrance](#secret-entrance)
-- [02 - Gift Shop]
-- [03 - Lobby]
-- [04 - Printing Department]
+# Advent 2025 - Zig
 
-## 01 - Secret Entrance {#secret-entrance}
+[https://adventofcode.com/2025](https://adventofcode.com/2025)
+
+- [01 - Secret Entrance](#secret-entrance)
+- [02 - Gift Shop](#gift-shop)
+- [03 - Lobby](#lobby)
+- [04 - Printing Department](#printing-department)
+
+## Secret Entrance
 
 A safe has a dial with only an arrow on it; around the dial are the numbers 0 through 99 in order. As you turn the dial, it makes a small click noise as it reaches each number.
 
@@ -107,7 +111,7 @@ This additional complexity puts strain on my design though. I think that splitti
 
 For me, the biggest challenge here was just getting going with Zig, and learning how numbers work. I got stuck for a while on the algorithm, but it was a good place to start.
 
-## 02 - Gift Shop {#gift-shop}
+## Gift Shop
 
 Identify the invalid product IDs in the provided ranges. Ranges are formatted as a single comma-delimited string. Each range consists of a `first` and `last` ID value, separated by a dash (e.g., `11-22,95-115`). ID values do not include leading zeroes.
 
@@ -183,3 +187,15 @@ This one seems rough. I do a *third* loop (albeit a small one) over each digit, 
 
 
 Doing a performance comparison on these implementations seems worthwhile, though they remain interesting primarily from an algorithmic point of view (rather than vis-a-vis language features or base concepts).
+
+## Lobby
+
+### Part I
+
+### Part II
+
+## Printing Department
+
+### Part I
+
+### Part II
